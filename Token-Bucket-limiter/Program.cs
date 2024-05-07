@@ -24,6 +24,6 @@ app.UseRateLimiter();
 
 static string GetTicks() => (DateTime.Now.Ticks & 0x11111).ToString("00000");
 
-app.MapGet("/", () => Results.Ok( $"Token Limiter {GetTicks()}")).RequireRateLimiting(tokenPolicy);
+app.MapGet("/", () => Results.Ok( $"Token Bucket Limiter {GetTicks()}")).RequireRateLimiting(tokenPolicy);
 
 app.Run();
